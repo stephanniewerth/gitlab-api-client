@@ -148,6 +148,18 @@ class MergeRequests extends AbstractApi
                 return $wip ? 'yes' : 'no';
             });
 
+        $resolver->setDefined('not[assignee_id]');
+        $resolver->setDefined('not[assignee_username]');
+        $resolver->setDefined('not[author_id]');
+        $resolver->setDefined('not[author_username]');
+        $resolver->setDefined('not[iids]');
+        $resolver->setDefined('not[iteration_id]');
+        $resolver->setDefined('not[iteration_title]');
+        $resolver->setDefined('not[labels]');
+        $resolver->setDefined('not[milestone]');
+        $resolver->setDefined('not[milestone_id]');
+        $resolver->setDefined('not[weight]');
+
         $path = null === $project_id ? 'merge_requests' : $this->getProjectPath($project_id, 'merge_requests');
 
         return $this->get($path, $resolver->resolve($parameters));
