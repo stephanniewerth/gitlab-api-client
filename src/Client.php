@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Gitlab;
 
+use Gitlab\Api\Commits;
 use Gitlab\Api\DeployKeys;
 use Gitlab\Api\Deployments;
 use Gitlab\Api\Environments;
@@ -152,6 +153,11 @@ class Client
         return new self($builder);
     }
 
+    public function commits(): Commits
+    {
+        return new Commits($this);
+    }
+    
     /**
      * @return DeployKeys
      */
