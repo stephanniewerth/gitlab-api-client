@@ -18,6 +18,6 @@ class Commits extends AbstractApi
 {
     public function mergeRequests($project_id, string $sha): mixed
     {
-        return $this->get($this->getProjectPath($project_id, 'commits/'.self::encodePath($sha).'/merge_requests'));
+        return $this->get($this->getProjectPath($project_id, 'repository/commits/'.self::encodePath($sha).'/merge_requests'));
     }
 }
